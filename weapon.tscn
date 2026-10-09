@@ -1,0 +1,26 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://weapon.gd" id="1_weapon"]
+
+[sub_resource type="Gradient" id="Gradient_green"]
+colors = PackedColorArray(0.2, 0.8, 0.3, 1, 0.2, 0.8, 0.3, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_green"]
+gradient = SubResource("Gradient_green")
+width = 8
+height = 48
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_weapon")
+
+[node name="Staff" type="TextureRect" parent="."]
+offset_left = -4.0
+offset_top = -48.0
+offset_right = 4.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_green")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, -48)
+
+[node name="FireTimer" type="Timer" parent="."]
