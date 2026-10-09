@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://d1bd16wlyaa47"]
 
 [ext_resource type="PackedScene" path="res://player.tscn" id="1_player"]
+[ext_resource type="Script" path="res://enemy_spawner.gd" id="2_spawner"]
 
 [node name="Main" type="Node2D" unique_id=1293715136]
 
 [node name="Player" parent="." instance=ExtResource("1_player")]
 position = Vector2(576, 324)
+
+[node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_spawner")
+target = NodePath("../Player")
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
