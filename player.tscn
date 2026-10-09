@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://player.gd" id="1_player"]
 [ext_resource type="PackedScene" path="res://weapon.tscn" id="2_weapon"]
+[ext_resource type="Script" path="res://health_bar.gd" id="3_health_bar"]
 
 [sub_resource type="Gradient" id="Gradient_blue"]
 colors = PackedColorArray(0.2, 0.4, 1, 1, 0.2, 0.4, 1, 1)
@@ -11,8 +12,19 @@ gradient = SubResource("Gradient_blue")
 width = 64
 height = 64
 
-[node name="Player" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hurtbox"]
+size = Vector2(72, 72)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 2
+motion_mode = 1
 script = ExtResource("1_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_body")
 
 [node name="Sprite" type="TextureRect" parent="."]
 offset_left = -32.0
@@ -24,3 +36,15 @@ texture = SubResource("GradientTexture2D_blue")
 
 [node name="Weapon" parent="." instance=ExtResource("2_weapon")]
 position = Vector2(0, -20)
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2(0, 44)
+script = ExtResource("3_health_bar")
+size = Vector2(56, 6)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_hurtbox")
