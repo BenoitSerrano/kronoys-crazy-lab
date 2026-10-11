@@ -1,10 +1,12 @@
 extends CanvasLayer
 
+const TitleScene := "res://scenes/ui/title_screen.tscn"
+
 
 func _ready() -> void:
 	hide()
 	%RetryButton.pressed.connect(_on_retry_pressed)
-	%ExitButton.pressed.connect(_on_exit_pressed)
+	%MainScreenButton.pressed.connect(_on_main_screen_pressed)
 
 
 func open() -> void:
@@ -17,5 +19,6 @@ func _on_retry_pressed() -> void:
 	get_tree().reload_current_scene()
 
 
-func _on_exit_pressed() -> void:
-	get_tree().quit()
+func _on_main_screen_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file(TitleScene)
