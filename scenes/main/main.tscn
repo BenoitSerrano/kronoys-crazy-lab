@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="1_player"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy_spawner.gd" id="2_spawner"]
 [ext_resource type="PackedScene" path="res://scenes/ui/game_over.tscn" id="3_game_over"]
+[ext_resource type="PackedScene" path="res://scenes/ui/wave_banner.tscn" id="5_wave_banner"]
 [ext_resource type="Resource" path="res://scenes/enemy/waves/wave_1.tres" id="4_wave_1"]
 [ext_resource type="Resource" path="res://scenes/enemy/waves/wave_2.tres" id="4_wave_2"]
 [ext_resource type="Resource" path="res://scenes/enemy/waves/wave_3.tres" id="4_wave_3"]
@@ -22,5 +23,7 @@ waves = Array[Resource]([ExtResource("4_wave_1"), ExtResource("4_wave_2"), ExtRe
 target = NodePath("../Player")
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
+
+[node name="WaveBanner" parent="." instance=ExtResource("5_wave_banner")]
 
 [node name="GameOver" parent="." instance=ExtResource("3_game_over")]

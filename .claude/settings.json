@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(godot:*)",
+      "Bash(/Applications/Godot.app/Contents/MacOS/Godot:*)",
+      "Bash(tests/run.sh:*)",
+      "Bash(./tests/run.sh:*)"
+    ]
+  }
+}

@@ -18,7 +18,8 @@ var _alive := 0
 
 func _ready() -> void:
 	$SpawnTimer.one_shot = true
-	_run_waves()
+	# Deferred so listeners can connect in their _ready before wave 1 starts.
+	_run_waves.call_deferred()
 
 
 func _run_waves() -> void:
@@ -62,5 +63,6 @@ func _spawn(wave: Wave) -> void:
 
 func _on_enemy_removed() -> void:
 	_alive -= 1
-	if _alive == 0:
+	# Enemies also leave when the whole scene is freed (e.g. Retry): don't treat that as a cleared wave.
+	if _alive == 0 and is_inside_tree():
 		_last_enemy_removed.emit()
