@@ -4,6 +4,11 @@
 [ext_resource type="PackedScene" path="res://scenes/player/player.tscn" id="1_player"]
 [ext_resource type="Script" path="res://scenes/enemy/enemy_spawner.gd" id="2_spawner"]
 [ext_resource type="PackedScene" path="res://scenes/ui/game_over.tscn" id="3_game_over"]
+[ext_resource type="Resource" path="res://scenes/enemy/waves/wave_1.tres" id="4_wave_1"]
+[ext_resource type="Resource" path="res://scenes/enemy/waves/wave_2.tres" id="4_wave_2"]
+[ext_resource type="Resource" path="res://scenes/enemy/waves/wave_3.tres" id="4_wave_3"]
+[ext_resource type="Resource" path="res://scenes/enemy/waves/wave_4.tres" id="4_wave_4"]
+[ext_resource type="Resource" path="res://scenes/enemy/waves/wave_5.tres" id="4_wave_5"]
 
 [node name="Main" type="Node2D" unique_id=1293715136]
 script = ExtResource("1_main")
@@ -13,6 +18,7 @@ position = Vector2(576, 324)
 
 [node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_spawner")
+waves = Array[Resource]([ExtResource("4_wave_1"), ExtResource("4_wave_2"), ExtResource("4_wave_3"), ExtResource("4_wave_4"), ExtResource("4_wave_5")])
 target = NodePath("../Player")
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
