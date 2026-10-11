@@ -1,6 +1,6 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://weapon.gd" id="1_weapon"]
+[ext_resource type="Script" path="res://scenes/weapon/weapon.gd" id="1_weapon"]
 
 [sub_resource type="Gradient" id="Gradient_green"]
 colors = PackedColorArray(0.2, 0.8, 0.3, 1, 0.2, 0.8, 0.3, 1)

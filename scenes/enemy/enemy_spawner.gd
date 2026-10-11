@@ -1,6 +1,6 @@
 extends Node2D
 
-const EnemyScene := preload("res://enemy.tscn")
+const EnemyScene := preload("res://scenes/enemy/enemy.tscn")
 
 ## Seconds between two spawns.
 @export var spawn_interval: float = 1.5

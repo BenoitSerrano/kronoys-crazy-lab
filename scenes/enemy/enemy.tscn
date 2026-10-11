@@ -1,7 +1,7 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_enemy"]
-[ext_resource type="Script" path="res://health_bar.gd" id="2_health_bar"]
+[ext_resource type="Script" path="res://scenes/enemy/enemy.gd" id="1_enemy"]
+[ext_resource type="Script" path="res://scenes/ui/health_bar.gd" id="2_health_bar"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enemy"]
 size = Vector2(48, 48)

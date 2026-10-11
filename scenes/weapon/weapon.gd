@@ -1,6 +1,6 @@
 extends Node2D
 
-const BulletScene := preload("res://bullet.tscn")
+const BulletScene := preload("res://scenes/weapon/bullet.tscn")
 
 ## Bullets fired per second.
 @export var fire_rate: float = 5.0
