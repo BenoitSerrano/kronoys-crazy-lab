@@ -35,7 +35,6 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_blue")
 
 [node name="Weapon" parent="." instance=ExtResource("2_weapon")]
-position = Vector2(0, -20)
 
 [node name="HealthBar" type="Node2D" parent="."]
 position = Vector2(0, 44)

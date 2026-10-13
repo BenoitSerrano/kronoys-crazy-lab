@@ -4,6 +4,8 @@ extends Area2D
 @export var radius: float = 6.0
 @export var color: Color = Color(1, 0.15, 0.15)
 @export var damage: int = 1
+## Unit vector the bullet travels along; set by the weapon.
+var direction := Vector2.UP
 
 # Guards against hitting two enemies in the same frame.
 var _spent := false
@@ -15,7 +17,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	position.y -= speed * delta
+	position += direction * speed * delta
 
 
 func _draw() -> void:
