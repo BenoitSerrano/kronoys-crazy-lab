@@ -9,7 +9,7 @@ const EnemyScene := preload("res://scenes/enemy/enemy.tscn")
 
 ## Waves played in order. Each one starts once the previous one is fully killed.
 @export var waves: Array[Wave] = []
-## How far above the top edge of the screen enemies appear.
+## How far outside the screen edges enemies appear.
 @export var spawn_margin: float = 40.0
 @export var target: Node2D
 
@@ -52,13 +52,25 @@ func _spawn(wave: Wave) -> void:
 	enemy.target = target
 	enemy.speed = wave.enemy_speed
 	enemy.max_health = wave.enemy_health
-	enemy.position = Vector2(
-		randf_range(screen.position.x, screen.end.x),
-		screen.position.y - spawn_margin,
-	)
+	enemy.position = _random_point_on_border(screen.grow(spawn_margin))
 	_alive += 1
 	enemy.tree_exited.connect(_on_enemy_removed)
 	add_child(enemy)
+
+
+## Uniform over the rectangle's perimeter, so every side gets spawns in proportion to its length.
+func _random_point_on_border(rect: Rect2) -> Vector2:
+	var d := randf() * 2.0 * (rect.size.x + rect.size.y)
+	if d < rect.size.x:
+		return rect.position + Vector2(d, 0)
+	d -= rect.size.x
+	if d < rect.size.y:
+		return Vector2(rect.end.x, rect.position.y + d)
+	d -= rect.size.y
+	if d < rect.size.x:
+		return Vector2(rect.end.x - d, rect.end.y)
+	d -= rect.size.x
+	return Vector2(rect.position.x, rect.end.y - d)
 
 
 func _on_enemy_removed() -> void:
