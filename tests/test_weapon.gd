@@ -16,6 +16,8 @@ func _initialize() -> void:
 	player.position = Vector2(500, 500)
 	world.add_child(player)
 	var weapon: Node2D = player.get_node("Weapon")
+	weapon.ranged_enabled = true
+	weapon.melee_enabled = false
 	var detection_range: float = weapon.detection_range
 
 	var far := _spawn_enemy(world, player.position + Vector2(detection_range + 100, 0))

@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_wave")
-enemy_count = 5
-spawn_interval = 1.5
+enemy_count = 30
+group_size = 3
+spawn_interval = 1.0
 start_delay = 2.0
 enemy_speed = 80.0
-enemy_health = 3
+enemy_health = 1

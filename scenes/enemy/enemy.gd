@@ -46,8 +46,8 @@ func _animate(delta: float, chase: Vector2) -> void:
 		_sprite.scale.x = absf(_sprite.scale.x) * (1.0 if chase.x < 0.0 else -1.0)
 
 
-func knock_back(direction: Vector2) -> void:
-	_knockback = direction * knockback_strength
+func knock_back(direction: Vector2, multiplier: float = 1.0) -> void:
+	_knockback = direction * knockback_strength * multiplier
 
 
 func take_damage(amount: int) -> void:

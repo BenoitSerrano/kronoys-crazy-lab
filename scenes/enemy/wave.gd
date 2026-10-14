@@ -3,7 +3,9 @@ extends Resource
 
 ## Number of enemies spawned during this wave.
 @export var enemy_count: int = 5
-## Seconds between two spawns within the wave.
+## Enemies spawned together, bunched up at the same spot on the border.
+@export var group_size: int = 1
+## Seconds between two groups within the wave.
 @export var spawn_interval: float = 1.5
 ## Pause before the first spawn of the wave.
 @export var start_delay: float = 2.0
