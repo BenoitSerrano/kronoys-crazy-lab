@@ -10,12 +10,20 @@
 [ext_resource type="Resource" path="res://scenes/enemy/waves/wave_3.tres" id="4_wave_3"]
 [ext_resource type="Resource" path="res://scenes/enemy/waves/wave_4.tres" id="4_wave_4"]
 [ext_resource type="Resource" path="res://scenes/enemy/waves/wave_5.tres" id="4_wave_5"]
+[ext_resource type="TileSet" path="res://assets/tilesets/wooden_floor_tileset.tres" id="6_floor_tileset"]
+[ext_resource type="Script" path="res://scenes/floor/floor.gd" id="7_floor"]
 
 [node name="Main" type="Node2D" unique_id=1293715136]
 script = ExtResource("1_main")
 
+[node name="Floor" type="TileMapLayer" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_set = ExtResource("6_floor_tileset")
+script = ExtResource("7_floor")
+
 [node name="Player" parent="." instance=ExtResource("1_player")]
-position = Vector2(576, 324)
+position = Vector2(960, 540)
 
 [node name="EnemySpawner" type="Node2D" parent="." node_paths=PackedStringArray("target")]
 script = ExtResource("2_spawner")
