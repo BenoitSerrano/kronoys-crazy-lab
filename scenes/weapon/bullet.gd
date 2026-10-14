@@ -3,7 +3,7 @@ extends Area2D
 @export var speed: float = 600.0
 @export var radius: float = 6.0
 @export var color: Color = Color(1, 0.15, 0.15)
-@export var damage: int = 1
+@export var damage: float = 0.5
 ## Unit vector the bullet travels along; set by the weapon.
 var direction := Vector2.UP
 

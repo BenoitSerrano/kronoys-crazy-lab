@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var speed: float = 80.0
-@export var max_health: int = 3
+@export var max_health: float = 3.0
 ## Damage dealt to the player on contact.
 @export var contact_damage: int = 1
 ## Initial speed (px/s) of the push away from the player on contact.
@@ -17,7 +17,7 @@ var target: Node2D
 var _knockback := Vector2.ZERO
 var _anim_time := 0.0
 
-@onready var health: int = max_health
+@onready var health: float = max_health
 @onready var _health_bar := $HealthBar
 @onready var _sprite: Sprite2D = $Sprite
 
@@ -50,7 +50,7 @@ func knock_back(direction: Vector2, multiplier: float = 1.0) -> void:
 	_knockback = direction * knockback_strength * multiplier
 
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: float) -> void:
 	health -= amount
 	_health_bar.value = health
 	if health <= 0:

@@ -5,7 +5,7 @@ extends Node2D
 const BulletScene := preload("res://scenes/weapon/bullet.tscn")
 
 ## Bullets fired per second.
-@export var fire_rate: float = 5.0
+@export var fire_rate: float = 3.0
 ## Enemies further than this (px) from the player are not detected.
 @export var detection_range: float = 400.0
 ## How fast the staff turns towards its target. Higher = snappier.
@@ -23,16 +23,16 @@ const BulletScene := preload("res://scenes/weapon/bullet.tscn")
 ## When off, the staff never fires; it only swings at close enemies.
 @export var ranged_enabled: bool = true
 ## Enemies closer than this (px, centre to centre) trigger a swing, and are hit by it.
-@export var melee_range: float = 100.0
+@export var melee_range: float = 130.0
 ## Angle (degrees) the staff sweeps, centred on the target.
 @export var swing_arc: float = 60.0
 ## Seconds for the staff to sweep the whole arc.
 @export var swing_duration: float = 0.3
 ## Seconds between the end of a swing and the start of the next.
 @export var swing_cooldown: float = 0.4
-@export var swing_damage: int = 2
+@export var swing_damage: float = 0.5
 ## Multiplier on the enemy's usual knockback when hit by the staff.
-@export var swing_knockback: float = 1.5
+@export var swing_knockback: float = 5.0
 
 # Current backward offset of the staff; decays back to 0.
 var _recoil: float = 0.0

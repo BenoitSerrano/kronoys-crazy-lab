@@ -7,8 +7,8 @@ colors = PackedColorArray(0.2, 0.8, 0.3, 1, 0.2, 0.8, 0.3, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_green"]
 gradient = SubResource("Gradient_green")
-width = 8
-height = 48
+width = 6
+height = 80
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_range"]
 resource_local_to_scene = true
@@ -18,15 +18,15 @@ radius = 400.0
 script = ExtResource("1_weapon")
 
 [node name="Staff" type="TextureRect" parent="." unique_id=145189854]
-offset_left = -4.0
-offset_top = -68.0
-offset_right = 4.0
+offset_left = -3.0
+offset_top = -100.0
+offset_right = 3.0
 offset_bottom = -20.0
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_green")
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=1261351051]
-position = Vector2(0, -68)
+position = Vector2(0, -100)
 
 [node name="DetectionRange" type="Area2D" parent="." unique_id=1872426089]
 collision_layer = 0
